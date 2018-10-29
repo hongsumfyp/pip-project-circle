@@ -20,12 +20,9 @@ jobs:
     steps:
       - checkout
 
-      - run:
-          name: install dependencies
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            python setup.py install 
+      - run: apt-get install -qy python3
+      - run: apt-get install -qy python3-pip
+      - run: pip-3.3 install -r requirements.txt
         
       - run: sudo su -c 'echo "deb http://deb.debian.org/debian jessie-backports main" >> /etc/apt/sources.list'
       - run: sudo rm -rf /var/lib/apt/lists/*
