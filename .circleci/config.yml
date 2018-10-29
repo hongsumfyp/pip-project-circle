@@ -24,7 +24,7 @@ jobs:
           command: |
             python3 -m venv venv
             . venv/bin/activate 
-            python setup.py python
+            python setup.py install
         
       - run: sudo su -c 'echo "deb http://deb.debian.org/debian jessie-backports main" >> /etc/apt/sources.list'
       - run: sudo rm -rf /var/lib/apt/lists/*
