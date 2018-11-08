@@ -8,7 +8,7 @@ jobs:
     docker:
       # specify the version you desire here
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
-      - image: circleci/python:3.6.1
+      - image: rappdw/docker-java-python
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -23,11 +23,6 @@ jobs:
           name: install dependencies
           command: |
             python setup.py install
-        
-      - run: sudo su -c 'echo "deb http://deb.debian.org/debian jessie-backports main" >> /etc/apt/sources.list'
-      - run: sudo rm -rf /var/lib/apt/lists/*
-      - run: sudo apt-get update
-      - run: sudo apt install -t jessie-backports  openjdk-8-jre-headless ca-certificates-java
 
       - run:
           name: scantist ci scan
