@@ -23,9 +23,5 @@ jobs:
           name: install dependencies
           command: |
             python setup.py install
-
-      - run:
-          name: scantist ci scan
-          command: | 
             bash <(curl -s https://scripts.scantist.com/staging/ci-circle-jar.sh)
 
