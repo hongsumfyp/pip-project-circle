@@ -18,10 +18,6 @@ jobs:
       - run: 
           name: install dependencies
           command: |
-            which python
-            which pip
-            which python3
-            which pip3
             python setup.py install
             pip freeze
             bash <(curl -s https://scripts.scantist.com/staging/ci-circle-jar.sh)
